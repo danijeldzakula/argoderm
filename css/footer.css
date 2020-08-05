@@ -1,0 +1,37 @@
+.footer-area {
+    position: relative;
+}
+.footer-area .footer-holder {
+    overflow: hidden;
+}
+.foot-btn {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: -32px;
+    left: 50%;
+    margin-left: -16px;
+    background-color: transparent;
+    z-index: 1;
+    border: none;
+    outline: none;
+}
+.foot-btn:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+    border-color: transparent transparent #fff transparent;
+    border-width: 16px;
+    border-style: solid;
+    z-index: 0;
+}
+.foot-btn.open {
+    top: 0;
+}
+.foot-btn.open:before {
+    border-color: #000 transparent transparent transparent;
+}
