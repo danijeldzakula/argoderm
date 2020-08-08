@@ -35,3 +35,8 @@
 .foot-btn.open:before {
     border-color: #000 transparent transparent transparent;
 }
+
+.form-control {
+    width: 100%;
+    height: 100%;
+}

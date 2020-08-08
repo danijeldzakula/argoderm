@@ -1,7 +1,7 @@
-var slSpead = 700; //скорость перелистывания слайдов
-var slTimeOut = 86400000; //время задежки показа слайда
-var slNeedLinks = true; //управляет ссылками "Следующий " и "Предыдущий" - если значение этой переменной равно true, то эти ссылки будут отображаться, а если false, то соответственно их не будет
-//определяем скорось для оперымини
+var slSpead = 700; //ÑÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ»Ð¸ÑÑ‚Ñ‹Ð²Ð°Ð½Ð¸Ñ ÑÐ»Ð°Ð¹Ð´Ð¾Ð²
+var slTimeOut = 86400000; //Ð²Ñ€ÐµÐ¼Ñ Ð·Ð°Ð´ÐµÐ¶ÐºÐ¸ Ð¿Ð¾ÐºÐ°Ð·Ð° ÑÐ»Ð°Ð¹Ð´Ð°
+var slNeedLinks = true; //ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ ÑÑÑ‹Ð»ÐºÐ°Ð¼Ð¸ "Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¹ " Ð¸ "ÐŸÑ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰Ð¸Ð¹" - ÐµÑÐ»Ð¸ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ð¾Ð¹ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ñ€Ð°Ð²Ð½Ð¾ true, Ñ‚Ð¾ ÑÑ‚Ð¸ ÑÑÑ‹Ð»ÐºÐ¸ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ, Ð° ÐµÑÐ»Ð¸ false, Ñ‚Ð¾ ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÐµÐ½Ð½Ð¾ Ð¸Ñ… Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚
+//Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ ÑÐºÐ¾Ñ€Ð¾ÑÑŒ Ð´Ð»Ñ Ð¾Ð¿ÐµÑ€Ñ‹Ð¼Ð¸Ð½Ð¸
 var isMobile = {
     Opera: function () {
         return navigator.userAgent.match(/Opera Mini/i);
@@ -17,10 +17,10 @@ $(document).ready(function (e) {
         , "top": '0'
         , "left": '0'
     }).hide().eq(0).show();
-    var slideNum = 0; //счетчик, номер активного слайда
+    var slideNum = 0; //ÑÑ‡ÐµÑ‚Ñ‡Ð¸Ðº, Ð½Ð¾Ð¼ÐµÑ€ Ð°ÐºÑ‚Ð¸Ð²Ð½Ð¾Ð³Ð¾ ÑÐ»Ð°Ð¹Ð´Ð°
     var slideTime;
     slideCount = $("#slider .slide").size();
-    var animSlide = function (arrow) { // Основная функция, логика нашего слайдера
+    var animSlide = function (arrow) { // ÐžÑÐ½Ð¾Ð²Ð½Ð°Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ, Ð»Ð¾Ð³Ð¸ÐºÐ° Ð½Ð°ÑˆÐµÐ³Ð¾ ÑÐ»Ð°Ð¹Ð´ÐµÑ€Ð°
         clearTimeout(slideTime);
         $('.slide').eq(slideNum).fadeOut(slSpead);
         if (arrow == "next") {
@@ -64,7 +64,7 @@ $(document).ready(function (e) {
         var goToNum = parseFloat($(this).text());
         animSlide(goToNum);
     });
-    var pause = false; //отвечает за остановку слайдера, если user навел курсор на слайд
+    var pause = false; //Ð¾Ñ‚Ð²ÐµÑ‡Ð°ÐµÑ‚ Ð·Ð° Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÑƒ ÑÐ»Ð°Ð¹Ð´ÐµÑ€Ð°, ÐµÑÐ»Ð¸ user Ð½Ð°Ð²ÐµÐ» ÐºÑƒÑ€ÑÐ¾Ñ€ Ð½Ð° ÑÐ»Ð°Ð¹Ð´
     var rotator = function () {
         if (!pause) {
             slideTime = setTimeout(function () {
@@ -86,40 +86,5 @@ $(document).ready(function (e) {
 
 
 
-function startTimer() {
-    var my_timer = document.getElementById("my_timer");
-    //var time = my_timer.innerHTML;
-    //var arr = time.split(":");
-    var h = $(".hour").html();
-    var m = $(".min").html();
-    var s = $(".sec").html();
-    if (s == 0) {
-        if (m == 0) {
-            if (h == 0) {
-                //alert("           ");
 
-                $('.timer__item-title').hide();
-                $('.timer__finish').show();
-                return;
-            }
-            h--;
-            m = 59;
-            if (h < 10)
-                h = "0" + h;
-        }
-        m--;
-        if (m < 10)
-            m = "0" + m;
-        s = 59;
-    }
-    else
-        s--;
-    if (s < 10)
-        s = "0" + s;
-    $(".hour").html(h);
-    $(".min").html(m);
-    $(".sec").html(s);
-    setTimeout(startTimer, 1000);
-}
-startTimer();
 
