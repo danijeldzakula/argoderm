@@ -78,10 +78,55 @@ header{
     /*background: rgba(0,0,0,0.59);*/
 }
 .header__logo{
-    /*float: left;*/
-    background: url("../img/logoo.png") no-repeat 40px top;
-    width: 278px;
+    position: relative;
+    float: left;
+    /*background: url("../img/logo.png") no-repeat 0 0;*/
     height: 42px;
+    margin-top: 0;
+    margin-left: 0;
+    text-transform: uppercase;
+    font-size: 26px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    font-family: 'PT Sans', sans-serif;
+    z-index: 10;
+}
+
+.header__logo::before, 
+.header__logo::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    width: 68px;
+    height: 68px;
+
+
+
+    content: '';
+    clear: both;
+    display: block;
+
+}
+
+.header__logo::before {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    background: #5c9f67; 
+    z-index: -2;
+}
+
+.header__logo::after {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: #545aa2; 
+    z-index: -1;
 }
 .header__call{
     color: #fff;
@@ -252,10 +297,14 @@ header{
     top: 0;
     left: 60px;
     z-index: 2;
-    background: url("../img/product.png") no-repeat 0 0, url("../img/icon_quality_vert.png") no-repeat 138px 0;
-    background-size: contain, auto;
-    width: 100%;
+    /*background: url("../img/product.png") no-repeat 0 0, url("../img/icon_quality_vert.png") no-repeat 138px 0;*/
+    background-image: url(../img/fungax.png);
+    background-repeat: no-repeat;
+    background-position: center 20px;
+    background-size: contain;
+    width: 50%;
     height: 440px;
+    display: none;
 }
 
 .section1-right{
@@ -785,17 +834,22 @@ header{
     height: 5px;
     position: relative;
     z-index: 1;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;    
 }
 .form-center:before{
     content: " ";
     position: absolute;
-    top: 18px;
-    left: 30px;
+    top: 0;
+    left: 0;
     z-index: 2;
-    background: url("../img/product.png") no-repeat 0 0;
+    background: url(../img/fungax.png) no-repeat center center;
     background-size: contain;
-    width: 380px;
-    height: 469px;
+    width: 230px;
+    height: 347px;
 }
 
 .form-right{
@@ -952,7 +1006,9 @@ header{
 }
 .section9 .wrapper:before{
     content: " ";
-    background: url("../img/better-img.png") no-repeat 0 0;
+    background-image: url("../img/fungax.png");
+    background-position: center right;
+    background-size: contain;
     width: 424px;
     height: 532px;
     position: absolute;
@@ -996,7 +1052,7 @@ header{
     padding: 40px 0 55px 310px;
     background-image:url("../img/expert-img.png"), url("../img/print.png");
     background-position: 0% 20%, 43% 100%;
-    background-repeat:no-repeat, no-repeat;
+    background-repeat:no-repeat;
     min-height: 399px;
 }
 .expert__text{
@@ -1098,13 +1154,92 @@ div#slider button::-moz-focus-inner {border:0;}
 
 
 .additional {
+    position: relative;
 	max-width: 1890px;
 	margin: auto;
-	background-image: url(../img/legs.png), url(../img/logotype.png), linear-gradient(to bottom, #3d444d 40%, #fff 90%, #fff 100%);
-	background-position: 78% 0%, 50% 2%;
-	background-repeat: no-repeat, no-repeat;
 	height: 835px;
+    z-index: 1;
 }
+
+.additional::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    clear: both;
+    display: block;
+    background-image: linear-gradient(to bottom, #3d444d 40%, #fff 90%, #fff 100%);
+    z-index: -2;
+}
+
+.additional::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    height: 120%;
+    content: '';
+    clear: both;
+    display: block;
+    background-image: linear-gradient(to bottom, #3d444d 40%, #fff 90%, #fff 100%);
+    z-index: -1;    
+    background-image: url(../img/legs.png);
+    background-position: 78% 0%, 50% 2%;
+    background-repeat: no-repeat;    
+}
+
+.fluid-title {
+    position: absolute;
+    top: 3%;
+    left: 7%;
+    font-size: 8vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgba(0,0,0,.25);
+    border-radius: 10px;
+    padding: 20px;
+    letter-spacing: 0.25em;
+    color: white;
+    font-family: 'PTSans-Bold';
+    filter: drop-shadow(3px 5px 8px rgba(0,0,0,.20));
+    animation: anim 2.5s infinite alternate ease-in-out;
+}
+
+
+
+@keyframes anim {
+  0% {
+    text-shadow: 0 0 10px transparent;
+    color:#fff;
+  }
+  50% {
+    text-shadow: -10px 22px 30px rgba(0, 0, 0, 0.8);
+    color:#fff;
+  }
+  75% {
+    text-shadow: 0px 22px 30px rgba(0, 0, 0, 0.8);
+    color:#fff;
+  }
+   100% {
+    text-shadow: 10px 22px 30px rgba(0, 0, 0, 0.8);
+     color:#fff;
+  }
+}
+
+.fungax-img {
+    max-width: 240px;
+    display: block;
+    margin: auto;
+    position: relative;
+    left: -70px;
+    top: -10px;   
+}
+
 .add_wrapper {
     max-width: 900px;
     position: relative;
@@ -1311,8 +1446,8 @@ div#slider button::-moz-focus-inner {border:0;}
 	.sale-product-img:before {
         left: -45px;
         z-index: 2;
-        background: url(../img/product.png) no-repeat 100% 100%;
-        background-size: contain, auto;
+        /*background: url(../img/product.png) no-repeat 100% 100%;*/
+        /*background-size: contain, auto;*/
         width: 100%;
 	}
 	.section1-right {
@@ -1336,7 +1471,7 @@ div#slider button::-moz-focus-inner {border:0;}
 }
 @media all and (max-width: 1040px) {
     .form-center:before {
-        left: -95px;
+        /*left: -95px;*/
     }
     .section1-center {
         width: 32%;
@@ -1349,10 +1484,13 @@ div#slider button::-moz-focus-inner {border:0;}
 	    margin-left: 50px;
 	}
 	.describe {
-		left: 0px;
+		left: 4%;
+        top: 18%;
     	width: 59%;
 	}
 }
+
+
 
 @media screen and (max-width: 991px){
     .wrapper {
@@ -1364,11 +1502,14 @@ div#slider button::-moz-focus-inner {border:0;}
     .header__blocks{display: none;}
     .section1 {
         min-height: 6px;
-        background: #3e454e; /* Old browsers */
-    background: url("../img/product.png") no-repeat 50% 20%, -moz-radial-gradient(40% bottom, farthest-side, #7e858e 0%, #3e454e 60%); /* FF3.6-15 */
-    background: url("../img/product.png") no-repeat 50% 20%, -webkit-radial-gradient(40% bottom, farthest-side, #7e858e 0%, #3e454e 60%); /* Chrome10-25,Safari5.1-6 */
-    background: url("../img/product.png") no-repeat 50% 20%, radial-gradient(farthest-side at 40% bottom, #7e858e 0%, #3e454e 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        background: #3e454e; 
+        background-image: radial-gradient(farthest-side at 40% bottom, #7e858e 0%, #3e454e 60%);
+        /*
+    background: url("../img/product.png") no-repeat 50% 20%, -moz-radial-gradient(40% bottom, farthest-side, #7e858e 0%, #3e454e 60%); 
+    background: url("../img/product.png") no-repeat 50% 20%, -webkit-radial-gradient(40% bottom, farthest-side, #7e858e 0%, #3e454e 60%); 
+    background: url("../img/product.png") no-repeat 50% 20%, radial-gradient(farthest-side at 40% bottom, #7e858e 0%, #3e454e 60%); */
         
+
         
     }
     .main-title {
@@ -1423,6 +1564,7 @@ div#slider button::-moz-focus-inner {border:0;}
         font-family: "PTSans-Italic",sans-serif;
         padding-top: 8px;
         position: relative;
+        text-align: center;
     }
     .product-how-much {
         background: #FFC162;
@@ -1599,7 +1741,10 @@ div#slider button::-moz-focus-inner {border:0;}
         margin-top: -6px;
     }
     .section9{
-        background: url("../img/better-img.png") no-repeat right top;
+        background-image: url("../img/fungax.png");
+        background-repeat: no-repeat;
+        background-position: 70px center;
+        background-size: contain;
         min-height: 620px;
     }
     .better__wrap {
@@ -1733,7 +1878,8 @@ div#slider button::-moz-focus-inner {border:0;}
         margin: 380px auto 0;
     }
     .section9 {
-        background-position: center top;
+        background-position: center 140px;
+        background-size: 260px;
     }
     .better__wrap {
         width: 100%;
@@ -1768,8 +1914,8 @@ div#slider button::-moz-focus-inner {border:0;}
         padding-top: 160px;
     }
     .main-title {
-        font-size: 42px;
-        line-height: 42px;
+        font-size: 36px;
+        line-height: 1.318;
         text-align: center;
         padding: 35px 0 20px;
     }
@@ -2379,7 +2525,8 @@ div#slider button::-moz-focus-inner {border:0;}
 		width: 86%;
 	    font-size: 19px;
 	    background-size: 28%;
-	    top: 86px;
+	    top: 102px;
+        left: -12px;
 	    padding-bottom: 55px;
 	}
 }
@@ -2389,7 +2536,8 @@ div#slider button::-moz-focus-inner {border:0;}
         width: 300px;
     }
     .section9 {
-        background-size: contain;
+        background-size: 260px;
+        background-position: center top;
     }
     .section9 .title {
         padding-top: 375px;
@@ -2673,5 +2821,165 @@ div#slider button::-moz-focus-inner {border:0;}
     }
     .sli-links {
         margin-top: 14px;
+    }
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    .describe {
+       top: 45%; 
+    }
+
+    .fungax-img {
+        margin-right: 0;
+        left: 0;
+        top: -120px;
+        max-width: 310px;
+    }
+
+    .additional::before {
+        width: 40%;
+    }
+}
+
+
+@media only screen and (min-width: 1021px) {
+    .describe {
+       top: 50%;
+       width: 52%; 
+    }
+
+    .fungax-img {
+        margin-right: 0;
+        left: -130px;
+        top: 0;
+        max-width: 310px;
+    }
+
+    .additional::before {
+        width: 60%;
+        height: 100%;
+        background-size: contain;
+    }
+}
+
+@media only screen and (min-width: 1521px) {
+    .describe {
+       top: 38%;
+       width: 48%; 
+    }
+
+    .fungax-img {
+        margin-right: 0;
+        left: -40px;
+        top: 50px;
+        max-width: 350px;
+    }
+
+    .additional {
+        max-width: 100%;
+    }
+}
+
+/*
+.tiptop {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+*/
+
+.icons_quality {
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-title {
+    position: relative;
+    font-size: 26px;
+}
+
+.main-title::after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    
+    background-image: url(../img/fungax.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    content: '';
+    clear: both;
+    display: block;
+}
+
+@media only screen and (min-width: 361px) {
+    .main-title::after {
+        height: 460px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .main-title {
+        font-size: 42px;
+        text-align: center;
+        line-height: normal;
+    }
+    .main-title::after {
+        top: 220px;
+        left: 0;
+        height: 420px;
+    }
+}
+
+@media only screen and (min-width: 951px) {
+    .header__logo {
+        left: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .main-title {
+        font-size: 32px;
+        line-height: 1.318;
+        text-align: left;
+    }
+    .main-title::after {
+        top: 90px;
+        left: auto;
+        height: 500px;
+        width: 190px;
+        right: calc(40% - 95px);
+        background-size: 330px;
+    }
+}
+
+@media only screen and (min-width: 1251px) {
+    .section1 {
+        padding-bottom: 50px;
+    }
+    .main-title::after {
+        top: 90px;
+        left: auto;
+        right: calc(40% - 95px);
+        height: 500px;
+    }
+}
+
+@media only screen and (min-width: 446px) {
+    .section9 {
+        background-position: center 120px;
+    }
+}
+
+@media only screen and (min-width: 781px) {
+    .section9 {
+        background-position: center right;
+        background-size: 400px;    
     }
 }
